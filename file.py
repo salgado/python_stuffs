@@ -1,7 +1,4 @@
 file = open("newfile.txt", "a")
-
-file.write("hello world in the new file\n")
-
-file.write("and another line\n")
-
+msg = "cocatena"
+file.write("%s\n" % msg) 
 file.close()
