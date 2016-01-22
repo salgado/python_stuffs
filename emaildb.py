@@ -18,6 +18,7 @@ for line in fh:
     email = pieces[1]
     orgs= email.split("@")
     org = orgs[1]
+    org = org.strip("\n")
     print org
     cur.execute('SELECT count FROM Counts WHERE org = ? ', (org, ))
     row = cur.fetchone()
@@ -30,10 +31,11 @@ for line in fh:
     # This statement commits outstanding changes to disk each 
     # time through the loop - the program can be made faster 
     # by moving the commit so it runs only after the loop completes
-    conn.commit()
+
+conn.commit()
 
 # https://www.sqlite.org/lang_select.html
-sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
+sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC'
 
 print
 print "Counts:"
