@@ -1,4 +1,4 @@
 file = open("newfile.txt", "a")
-msg = "cocatena"
+msg = "concatena"
 file.write("%s\n" % msg) 
 file.close()
